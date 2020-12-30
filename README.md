@@ -5,4 +5,4 @@ Pada pembahasan ini dibagi menjadi dua :
 
 1. Mengenal tentang dasar-dasar relational data dengan menggunakan file percobaanawal.Rmd
 
-2. Mengenal tentang aplikasi realtional data pada dunia penerbangan menggunakan file percobaan relational.Rmd
+2. Mengenal tentang aplikasi realtional data pada dunia penerbangan menggunakan file percobaabrelational.Rmd
