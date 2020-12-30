@@ -28,7 +28,7 @@ library(tidyverse)
 
 #### Untuk membantu kita mempelajari cara kerja joins, kita akan menggunakan representasi visual:
 
-![Gambar 2 data ](image/join-setup.png)
+![Gambar 2 data ](join-setup.png)
 
 #### Kolom berwarna adalah mewakili variabel "key", variabel ini digunakan untuk mencocokkan baris pada tabel data set tersebut. Sedangkan untuk kolom abu-abu menunjukkan kolom "value", variabel ini digunakan menjelaskan deskripsi tentang nilai pada variabel key pada tabel data set tersebut.
 
@@ -76,7 +76,7 @@ y
 
 #### Output dari inner join adalah bingkai data baru yang berisi key, value tabel x, dan value tabel y. Kita dapat menggunakan fungsi tersebut dengan menggunakan library dplyr.
 
-![Gambar Relational 2 data terhadap variabel "key" dan hasil relational nya ](image/gambarrelationalup2.png)
+![Gambar Relational 2 data terhadap variabel "key" dan hasil relational nya ](gambarrelationalup2.png)
 
 #### Pada gambar dapat dilihat bahwa penggabungan dapat dilakukan dengan titik-titik karena terdapat variabel "key" yang sama pada kedua tabel. Sehingga dapat dibuat tabel gabungan dengan nilai variabel "key" yang sama, dengan mengikuti variabel "value" pada tabel x dan tabel y.
 
@@ -99,11 +99,11 @@ x %>%
 
 #### Proses joint ini bekerja dengan menambahkan variabel "value" menjadi data "virtual" pada salah satu tabel. Hasil nya dapat memiliki key yang selalu cocok (jika tidak ada kunci lain yang cocok), dan value diisi dengan NA. Secara grafis, itu terlihat seperti:
 
-![Gambar Relational 2 data dengan Left, Right, Full dan hasil relational ](image/gambarrelationalup3.png)
+![Gambar Relational 2 data dengan Left, Right, Full dan hasil relational ](gambarrelationalup3.png)
 
 #### Left Joint
 
-![Gambar Relational 2 data dengan left_joint dan hasil relational](image/leftjoint.png)
+![Gambar Relational 2 data dengan left_joint dan hasil relational](leftjoint.png)
 
 ### Langkah 5
 
@@ -130,7 +130,7 @@ left_join(x,y)
 
 ### Right Joint
 
-![Gambar Relational 2 data dengan right_joint dan hasil relational](image/rightjoint.png)
+![Gambar Relational 2 data dengan right_joint dan hasil relational](rightjoint.png)
 
 ### Langkah 7
 
@@ -140,7 +140,7 @@ right_join(x,y)
 
 ### Full Joint
 
-![Gambar Relational 2 data dengan full_joint dan hasil relational](image/fulljoint.png)
+![Gambar Relational 2 data dengan full_joint dan hasil relational](fulljoint.png)
 
 ### Langkah 8
 
@@ -150,7 +150,7 @@ full_join(x,y)
 
 #### Operasi joint yang paling umum digunakan adalah left joint : Kita menggunakan proses left joint setiap kali kita mencari data tambahan dari tabel lain, karena observasi asli tetap dipertahankan meskipun tidak ada kecocokan. left joint harus menjadi proses joint secara default : proses ini left joint kita pertahankan untuk digunakan, kecuali kita memiliki alasan kuat untuk memilih salah satu proses outer joint yang lain. Cara lain untuk menggambarkan berbagai jenis operasi outher joint adalah dengan diagram Venn:
 
-![Gambar Relational 2 data dengan diagram Venn ](image/gambarrelationalup4.png)
+![Gambar Relational 2 data dengan diagram Venn ](gambarrelationalup4.png)
 
 #### Model diagram Venn, adalah tidak merepresentasikan yang bagus. Kadang kala  mengganggu gambaran kita tentang operasi joint karena sulit untuk mengetahui tentang tabel mana yang dipertahankan, selain itu diagram venn terdapat kelemahan yaitu diagram Venn tidak dapat menunjukkan apa yang terjadi jika variabel "key" tidak secara unik mewakili dari data pada tabel.
 
@@ -160,7 +160,7 @@ full_join(x,y)
 
 #### 1. Dimana bila satu tabel memiliki key duplikat. Kondisi ini adalah sangat berguna jika kita ingin menambahkan informasi tambahan karena biasanya ada hubungan satu ke banyak.
 
-![Gambar Duplicate Key 2 data ](image/gambarrelationalup5.png)
+![Gambar Duplicate Key 2 data ](gambarrelationalup5.png)
 
 #### Perhatikan bahwa kita telah meletakkan kolom variabel "key" di posisi yang sedikit berbeda dalam hasil keluaran tabel. Ini artinya bahwa variabel "key" tersebut adalah menjadi "primary key" di tabel y dan menjadi "foreign key"  di tabel x.
 
@@ -188,7 +188,7 @@ left_join(x, y, by = "key")
 
 #### 2. Pada kedua tabel memiliki duplicate keys. Ini biasanya merupakan kesalahan karena di tabel tidak ada tombol yang secara unik mengidentifikasi pengamatan. Saat kita melakukan menggabungkan duplicate keys, kita mendapatkan semua kemungkinan kombinasi, ini dapat dikatakan sebagai produk Cartesian:
 
-![Gambar Duplicate Key antar data set ](image/gambarrelationalup7.png)
+![Gambar Duplicate Key antar data set ](gambarrelationalup7.png)
 
 ### Langkah 11
 
@@ -212,7 +212,7 @@ left_join(x, y, by = "key")
 
 #### Konsep lain bisa menggunakan semi-joint, proses semi-joint dapat menghubungkan dua tabel seperti mutating join, yaitu hanya mempertahankan baris dalam x yang memiliki kecocokan di y. Secara grafis, semi-join terlihat seperti ini :
 
-![Gambar Relational semi-joint 2 data ](image/gambarrelationalup6.png)
+![Gambar Relational semi-joint 2 data ](gambarrelationalup6.png)
 
 ### Langkah 12
 
@@ -234,7 +234,7 @@ y <- tribble(
 
 #### Konsep lain adalah gabungan pemfilteran tidak pernah menduplikasi baris seperti mutating joins. Secara grafis, semi-join terlihat seperti ini :
 
-![Gambar semi-joint antar 2 data set ](image/gambarrelationalup8.png)
+![Gambar semi-joint antar 2 data set ](gambarrelationalup8.png)
 
 ### Langkah 13
 
@@ -258,7 +258,7 @@ y <- tribble(
 
 #### Kebalikan dari semi-join adalah anti-join. Anti-join menjaga baris yang tidak memiliki kecocokan. Secara grafis, anti-join terlihat seperti ini :
 
-![Gambar anti-joint antar 2 data ](image/gambarrelationalup9.png)
+![Gambar anti-joint antar 2 data ](gambarrelationalup9.png)
 
 ### Langkah 14
 
